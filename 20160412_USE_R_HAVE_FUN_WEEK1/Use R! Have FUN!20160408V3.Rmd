@@ -1,0 +1,69 @@
+---
+title: "USE R! HAVE FUN!"
+output: html_document
+---
+
+This is a brief introduction about R that could be useful in the Statistics course instructed by assistant professor Chen Wang.  
+A large part of the materials come from the online course **Data Science Specialities** offered by **Coursera**, which is a good MOOC paltform.  
+
+*In every chapter, you will have some exercises. I strongly hope that you can solve the questions for your own good.*
+
+And let's get down to business!   
+
+Prepared by: Yuan Tian (2016-4-12)
+
+#Chapter 1 What is R  
+
+- R is a dialect of S, a language for statistical analysis. It is also one of the most widely used tools in data science nowadays.  
+- R has lots of packages freely available, while you can also program your own scripts. In my point of view, R is somewhat a mixture of object-oriented language and procedure-oriented language.  
+- R runs on almost every standard computing platform(e.g., Windows, OS X).  
+- R enjoys frequent releases and active development.  
+- R has a good ecosystem with all source codes public, so that we can customize our own easily. 
+
+##Exercises   
+1. Besides R, there are a lot of software tools used in data science. Can you list **2** other tools? What are their advantages and disadvantages? And in which industries are those tools often used?     
+2. Install R on your computer. [Download R](https://www.r-project.org/).      
+3. RStudio is a powerful and productive user interface for R. I highly recommend you to install RStudio. [Download RStudio](https://www.rstudio.com/products/rstudio/download/). 
+4. You can also download the R tutorials from [R-bloggers](http://www.r-bloggers.com/).
+5. Please find out how many data types are legal in R. List all of them along with their features. **There are at least 10 of them.**  
+6. Using your knowledge about data type, type the following code:
+```{test}
+  x <- c(2)
+  y <- as.logical(x)
+  z <- as.character(y)
+  x
+  y
+  z
+```
+ What are the results of x, y and z? How does this happen?
+Then type the following code:
+```{test}
+  x <- 1:6
+  class(x)
+  dim(x) = c(3,2)
+  class(x)
+```
+ Why is the class of x changed?   
+7. Study the control structures of R (if else, for loops, while loops, repeat, next, break).  
+8. Using the knowledge you've learned, program a function that can do the division. Remember that the denominator cannot be zero. (I understand this is may be a bit tough, so fill your code in the following example).     
+```{Test}
+division <- function(nominator, denominator){  
+  # Use something to judge whether the denominator is zero, if so, return("Denominator is zero")#    
+  # Do the division here#    
+  # Return the result#    
+} 
+```
+To test your function, type in "division(2, 3)", "division(2, 0)". The results will be 0.6667 and "Denominator is zero".   
+9. Use your **division** function to solve the following equations:   
+- 10/2  
+- 6/5  
+- 9/0    
+10. Program a function called **innerproduct**, whose purpose is to calculate the inner product of two vectors. To practice the use of **for** loops, try both multiplication and summation operations. **Do make sure the two vectors are of the same length.** Test your function.      
+Tips: you can generate a vector in R by typing the following:   
+```{test}
+  x <- c(1, 2, 3, 4, 5)   
+```   
+=======================================================================   
+
+If you have questions with these exercises, feel free to contact me (Yuan Tian) via tianyuan12@hotmail.com.    
+I will also post solutions to the exercises every **Sunday** on my [Github](https://github.com/Tiany12/USE-R-HAVE-FUN-/tree/master). (P.S. Feel free to remind me if answers do not appear on time, too.)

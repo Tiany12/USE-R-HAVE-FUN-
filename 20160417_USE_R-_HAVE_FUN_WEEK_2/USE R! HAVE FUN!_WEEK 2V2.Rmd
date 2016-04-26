@@ -1,0 +1,103 @@
+---
+title: "USE R! HAVE FUN!"
+author: "Yuan Tian"
+date: "2016-4-18"
+output: html_document
+---
+
+Hey guys, I hope you all enjoyed last week's exercises. I think that should be a good point of departure in your R programming. This week, we will learn how to load and clean data. In my point of view, this is a vital step in data science because one needs to manipulate data into a useable form.   
+
+Let's get down to business.  
+
+#Chapter 2 Obtaining and cleaning data
+##The pipeline of solving a problem with data science
+1. Define the question  
+2. Choose the desire datasets  
+3. Determine what data can be accessed  
+4. Obtain data  
+5. Clean data  
+6. Do some exploratory data analysis  
+7. Apply mathematical tools (e.g., statistical prediction)
+8. Interpret results
+9. Challenge results
+10. Synthesize results
+11. Create reproducible code
+12. Distribute results 
+
+The steps above are the basic pipeline when dealing with a problem in data science. We will cover steps 4 to 11 during our tutorials. However what you will learn with this tutorial is far from enough for a data scientist. So I hope you can take this course as a point of departure.  
+
+##Getting data
+###Set your working directory
+Before you start any analysis, I highly suggest that you check your working directory and set your working directory properly.  
+**You can check you working directory using the following code.**
+```{Coach}
+getwd()
+```
+
+**And you can redirect your working directory using the following code.**
+```{Coach}
+setwd("your target path")
+```
+###Read local flat files
+Before reading your data into R, make sure it is in your working directory. While you can search what is in your working directory by hand, you can also check that out using the following code.
+```{Coach}
+dir()
+```
+
+You are all set up when you make sure you have all the data you need in your working directory. Then the following functions are two handy tools reading local flat files.  
+```{Coach}
+read.table("file name", header = TRUE, sep = ";")
+read.csv("file name")
+```
+###Have a glance at your data
+After loading your data, you should take a look at them first. And You can use the following code to do so.
+```{Coach}
+head(your dataset)
+str(your dataset)
+dim(your dataset)
+```
+Try to have a glance at the dataset "airquality" with the following code.
+```{Coach}
+library(datasets) 
+# Here we use this code to load some default datasets in R, you can check this package out by typing "?datasets".
+head(airquality)
+str(airquality)
+dim(airquality)
+```
+You will see a dollar sign "$" in the result. And this operator is a link between a dataset and a certain column. I mean if you want to manipulate certain column of the data, you should specify which column it is and to which dataset it belongs.  
+
+###Subset
+This might be a function that you may want to use.
+```{Coach}
+subset(the dataset, your condition)
+```
+For example, I can make a subset of the "airquality" with all the data collected in May using the following code.
+```{r}
+library(datasets)
+MyExample1 <- subset(airquality, Month == 5)
+# The next line is used to show you the result.
+head(MyExample1, n = 3)
+```
+Or make a subset of the "airquality" dataset with all data collected from May to Angust using the following code.
+```{r}
+MyExample2 <- subset(airquality, Month > 4 && Month < 9)
+# The next line is used to show you the result.
+table(MyExample2$Month)
+```
+#Exercises
+1. You did your first R functions in last chapter. But don't worry. Most of functions that you can ever imagine have been finished by others, so you just need to find them and use them. Install your first R package by typing "install.packages(ggplot2)".  
+
+2. There is a handy function in ggplot called "qplot". Type "?qplot" to see the help documentation, and play with this funciton as you like.    
+
+3. Load the default dataset called "airquality" using the following code. How many columns are there in this dataset?   
+
+```{Coach}
+library(datasets)
+```
+    
+4. The airquality dataset has 5 months' records from May to September (denoted as 5 to 9 in the dataset). What is the average of daily solar rediation (Solar.R) each month?   
+
+5. Make an appropriate plot to illustrate the average daily solar rediation each months from May to September.   
+*Tips:*    
+You can do this by first subsetting data of each month, and use the "mean()" function to calculate their mean.     
+You can also combine two vectors by "cbind" or "rbind" functions.    
